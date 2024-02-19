@@ -2,7 +2,7 @@ package org.apollo.template.Controller;
 
 /*
 
-    This it the main controller of the View, all other views are precedent within this view.
+    This it the main controller of the View, all other views are precedent with in this view.
 
  */
 
