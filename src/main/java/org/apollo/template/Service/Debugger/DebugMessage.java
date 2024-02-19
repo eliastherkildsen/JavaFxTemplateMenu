@@ -18,7 +18,7 @@ public class DebugMessage {
      */
     public static void info (Object instance, String message){
         if (ConfigLoader.instance.getDebug() == 1){
-            System.out.printf("%s[%s]%s %s%s%n", AnsiColorCode.BLUE, instance.getClass().getSimpleName() , AnsiColorCode.GREEN, message, AnsiColorCode.RESET);
+            System.out.printf("[%s%20s[%s]%s %s%s]%n","INFO", AnsiColorCode.BLUE, instance.getClass().getSimpleName() , AnsiColorCode.GREEN, message, AnsiColorCode.RESET);
         }
     }
     /**
@@ -28,19 +28,19 @@ public class DebugMessage {
      */
     public static void error (Object instance, String message){
         if (ConfigLoader.instance.getDebug() == 1) {
-            System.out.printf("%s[%s]%s %s%s%n", AnsiColorCode.BLUE, instance.getClass().getSimpleName(), AnsiColorCode.RED, message, AnsiColorCode.RESET);
+            System.out.printf("[%s%20s[%s]%s %s%s]%n","ERROR", AnsiColorCode.BLUE, instance.getClass().getSimpleName(), AnsiColorCode.RED, message, AnsiColorCode.RESET);
         }
     }
 
     /**
      * Shows a formatted Debug message in the cmd.
      * To handle edge cases like static methods.
-     * @param clazz Class
+     * @param name String
      * @param message String
      */
-    public static void info (Class<?> clazz, String message){
+    public static void info (String name, String message){
         if (ConfigLoader.instance.getDebug() == 1) {
-            System.out.printf("%s[%s]%s %s%s%n", AnsiColorCode.BLUE, clazz.getSimpleName(), AnsiColorCode.GREEN, message, AnsiColorCode.RESET);
+            System.out.printf("[%s%10s[%s]%s %s%s]%n","INFO", AnsiColorCode.BLUE, name, AnsiColorCode.GREEN, message, AnsiColorCode.RESET);
 
         }
     }
@@ -53,7 +53,7 @@ public class DebugMessage {
      */
     public static void error (Class<?> clazz, String message){
         if (ConfigLoader.instance.getDebug() == 1) {
-            System.out.printf("%s[%s]%s %s%s%n", AnsiColorCode.RED, clazz.getSimpleName(), AnsiColorCode.RED, message, AnsiColorCode.RESET);
+            System.out.printf("[%s%10s[%s]%s %s%s]%n", "ERROR", AnsiColorCode.RED, clazz.getSimpleName(), AnsiColorCode.RED, message, AnsiColorCode.RESET);
         }
     }
 }
