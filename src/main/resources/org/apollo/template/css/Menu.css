@@ -1,0 +1,17 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-font-size: 20;
+    -fx-fill: #000000FF;
+    -fx-border-color: #000000FF;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.button:hover {
+    -fx-border-width: 0px 0px 4px 0px;
+    -fx-font-weight: bold;
+    -fx-font-size: 19;
+}
+
+.main {
+    -fx-background-color: #d1d1d1;
+}
