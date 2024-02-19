@@ -3,13 +3,17 @@ package org.apollo.template;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.apollo.template.Service.ConfigLoader;
+import org.apollo.template.View.ViewList;
 
 import java.io.IOException;
 
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        ConfigLoader.get();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
         stage.setTitle("JavaFx Template - Apollo!");
