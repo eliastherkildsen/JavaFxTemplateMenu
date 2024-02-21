@@ -11,18 +11,20 @@ public class ViewLoader {
 
     /**
      * Java method for loading an anchor pane from a FXML file, and forwarding it as an anchor pane obj,
-     * with the corresponding controller.
+     * with the corresponding controller. Returns NULL if an IOException is thrown.
      *
      * @param fxmlFileName ViewList
      * @return AnchorPane
      */
     public static AnchorPane loadView(ViewList fxmlFileName) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setController(fxmlFileName.getController());
-        loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName()));
-        DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
-                + " With Controller: " + fxmlFileName.getController());
 
+        // Fetching anchor pane from a FXML file.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(fxmlFileName.getCONTROLLER());
+        loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName()));
+
+        DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
+                + " With Controller: " + fxmlFileName.getCONTROLLER());
 
         try {
             return loader.load();

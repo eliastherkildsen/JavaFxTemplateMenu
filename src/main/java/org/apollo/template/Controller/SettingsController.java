@@ -1,6 +1,14 @@
 package org.apollo.template.Controller;
 
-public class SettingsController {
+import javafx.fxml.Initializable;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class SettingsController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Initializing SettingsController");
+    }
 }
