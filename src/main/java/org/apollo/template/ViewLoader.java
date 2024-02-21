@@ -20,11 +20,11 @@ public class ViewLoader {
 
         // Fetching anchor pane from a FXML file.
         FXMLLoader loader = new FXMLLoader();
-        loader.setController(fxmlFileName.getCONTROLLER());
+        loader.setController(fxmlFileName.getController());
         loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName()));
 
         DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
-                + " With Controller: " + fxmlFileName.getCONTROLLER());
+                + " With Controller: " + fxmlFileName.getController());
 
         try {
             return loader.load();
