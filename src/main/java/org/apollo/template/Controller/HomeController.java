@@ -2,27 +2,27 @@ package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.apollo.template.Service.Debugger.DebugMessage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController {
+    private static HomeController INSTANCE = new HomeController();
     @FXML
     private AnchorPane root;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private HomeController() {
+        if (INSTANCE == null) {
+            DebugMessage.info(this, "Creating an instance of " + this);
+        }
+    }
 
-        TextField tf = new TextField();
-
-        tf.setLayoutX(200);
-        tf.setLayoutY(200);
-        tf.setText("    ");
-
-
-        root.getChildren().add(tf);
-
+    public static HomeController getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HomeController();
+        }
+        return INSTANCE;
     }
 }

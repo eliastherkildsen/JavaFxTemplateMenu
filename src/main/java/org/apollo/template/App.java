@@ -11,6 +11,7 @@ import org.apollo.template.View.ViewList;
 import java.io.IOException;
 
 public class App extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         ConfigLoader.get();
@@ -25,9 +26,11 @@ public class App extends Application {
         stage.setMinHeight(600);
         stage.setMinWidth(600);
         stage.show();
+
     }
 
     public static void main(String[] args) {
         launch();
+
     }
 }

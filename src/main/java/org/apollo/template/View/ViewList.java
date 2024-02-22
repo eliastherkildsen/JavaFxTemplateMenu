@@ -1,18 +1,21 @@
 package org.apollo.template.View;
 
-import org.apollo.template.Controller.ControllerList;
+import org.apollo.template.Controller.GameController;
+import org.apollo.template.Controller.HomeController;
+import org.apollo.template.Controller.MainController;
+import org.apollo.template.Controller.SettingsController;
 
 public enum ViewList {
 
-    MAIN("MainView.fxml", ControllerList.MAIN_CONTROLLER),
-    FAQ("FAQView.fxml", ControllerList.FAQ_CONTROLLER),
-    SETTINGS("SettingsView.fxml", ControllerList.SETTINGS_CONTROLLER),
-    HOME("HomeView.fxml", ControllerList.HOME_CONTROLLER);
+    MAIN("MainView.fxml", MainController.getInstance()),
+    GAME("GameView.fxml", GameController.getInstance()),
+    SETTINGS("SettingsView.fxml", SettingsController.getInstance()),
+    HOME("HomeView.fxml", HomeController.getInstance());
 
     private final String FXML_FILE_NAME;
-    private final ControllerList CONTROLLER;
+    private final Object CONTROLLER;
 
-    ViewList(String fxmlFileName, ControllerList controller) {
+    ViewList(String fxmlFileName, Object controller) {
         this.FXML_FILE_NAME = fxmlFileName;
         this.CONTROLLER = controller;
     }
@@ -22,7 +25,7 @@ public enum ViewList {
     }
 
     public Object getController() {
-        return CONTROLLER.getController();
+        return this.CONTROLLER;
     }
 
     public static final String LOADER_LOCATION = "/org/apollo/template/";
