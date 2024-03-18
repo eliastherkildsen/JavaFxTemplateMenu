@@ -8,10 +8,10 @@ package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.ViewList;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,25 +25,12 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         borderPane.setCenter(loadView(ViewList.HOME));
+        borderPane.setLeft(loadView(ViewList.MENU));
     }
 
-    @FXML
-    protected void onBtnHome() {
-        borderPane.setCenter(loadView(ViewList.HOME));
+    public void changeView(ViewList viewList ) {
+        borderPane.setCenter(loadView(viewList));
     }
-
-    @FXML
-    protected void onBtnSettings( ) {
-        borderPane.setCenter(loadView(ViewList.SETTINGS));
-    }
-
-    @FXML
-    protected void onBtnGame( ) {
-        borderPane.setCenter(loadView(ViewList.GAME));
-    }
-
-    @FXML
-    private AnchorPane root;
 
 
 

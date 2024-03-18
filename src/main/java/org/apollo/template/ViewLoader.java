@@ -16,21 +16,21 @@ public class ViewLoader {
      * @param fxmlFileName ViewList
      * @return AnchorPane
      */
-    public static AnchorPane loadView(ViewList fxmlFileName) {
+    public static javafx.scene.Node loadView(ViewList fxmlFileName) {
 
-        // Fetching anchor pane from a FXML file.
         FXMLLoader loader = new FXMLLoader();
-        loader.setController(fxmlFileName.getController());
-        loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName()));
+        loader.setController(fxmlFileName.getController()); // Fetches controller
+        loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName())); // Fetches FXML file
 
+        // Log message.
         DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
                 + " With Controller: " + fxmlFileName.getController());
 
         try {
-            return loader.load();
+            return loader.load(); // Returns anchor pane.
 
         } catch (IOException e) {
-            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + e);
+            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + "%n" + e.getMessage());
             return null;
         }
     }

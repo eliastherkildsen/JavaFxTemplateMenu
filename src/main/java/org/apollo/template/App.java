@@ -14,7 +14,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        ConfigLoader.get();
+        ConfigLoader.get(); // initializing configLoader.
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(ViewList.MAIN.getFxmlFileName()));
         fxmlLoader.setController(ViewList.MAIN.getController());

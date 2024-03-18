@@ -18,3 +18,8 @@ NEW("NEWView.fxml", "NewController");
 4. Add a button in MainView.fxml and link it to the new view 
 thrugh the MainController.java
 
+## TODO 
+1. Make menu a fxml ancorpane and not directly binded to the
+main BP. 
+2. Load css style thrugh view loader 
+3. make a way to create ALERT ex. right B
