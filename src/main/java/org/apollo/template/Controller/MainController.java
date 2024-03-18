@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +28,11 @@ public class MainController implements Initializable {
         changeView(ViewList.MENU, BorderPaneRegion.LEFT);
     }
 
+    /**
+     * Method for loading a container from a fxml file into the main Borderpane
+     * @param viewList FXMLView
+     * @param borderPaneRegion Region to load the fxml view into.
+     */
     public void changeView(ViewList viewList, BorderPaneRegion borderPaneRegion) {
 
         switch (borderPaneRegion){

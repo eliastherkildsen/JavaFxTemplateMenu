@@ -30,7 +30,7 @@ public class ViewLoader {
             return loader.load(); // Returns anchor pane.
 
         } catch (IOException e) {
-            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + "%n" + e.getMessage());
+            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + " " + e.getMessage());
             return null;
         }
     }
