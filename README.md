@@ -3,7 +3,7 @@ This is a simple structured javaFX menu template.
 
 ## How does it work? 
 
-1. Create an fxml view, with an AnchorPane as root.
+1. Create a fxml view, with a container as root.
 
 3. Create a Controller for the view. ( do not link the controller in 
 the fxml! This will later be done through data binding(3))
@@ -12,14 +12,11 @@ the fxml! This will later be done through data binding(3))
 parse the fxml file name, controller name in the enum. EX
 
 ```JAVA
-NEW("NEWView.fxml", "NewController");
+MENU("MenuView.fxml",MenuController.getInstance());
 ```
+Note that the controller in this example is a singleton. 
 
-4. Add a button in MainView.fxml and link it to the new view 
-thrugh the MainController.java
 
-## TODO 
-1. Make menu a fxml ancorpane and not directly binded to the
-main BP. 
-2. Load css style thrugh view loader 
-3. make a way to create ALERT ex. right B
+## TODO
+1. Load css style thrugh view loader 
+2. make a way to create ALERTS

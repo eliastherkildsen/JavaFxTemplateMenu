@@ -3,6 +3,7 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
 
 import static org.apollo.template.ViewLoader.loadView;
@@ -21,17 +22,17 @@ public class MenuController {
 
     @FXML
     protected void onBtnHome() {
-        MainController.getInstance().changeView(ViewList.HOME);
+        MainController.getInstance().changeView(ViewList.HOME, BorderPaneRegion.CENTER);
     }
 
     @FXML
     protected void onBtnSettings( ) {
-        MainController.getInstance().changeView(ViewList.SETTINGS);
+        MainController.getInstance().changeView(ViewList.SETTINGS, BorderPaneRegion.CENTER);
     }
 
     @FXML
     protected void onBtnGame( ) {
-        MainController.getInstance().changeView(ViewList.GAME);
+        MainController.getInstance().changeView(ViewList.GAME, BorderPaneRegion.CENTER);
     }
 
     public static MenuController getInstance() {

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
 
 import java.net.URL;
@@ -24,12 +25,20 @@ public class MainController implements Initializable {
     private BorderPane borderPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        borderPane.setCenter(loadView(ViewList.HOME));
-        borderPane.setLeft(loadView(ViewList.MENU));
+        changeView(ViewList.HOME, BorderPaneRegion.CENTER);
+        changeView(ViewList.MENU, BorderPaneRegion.LEFT);
     }
 
-    public void changeView(ViewList viewList ) {
-        borderPane.setCenter(loadView(viewList));
+    public void changeView(ViewList viewList, BorderPaneRegion borderPaneRegion) {
+
+        switch (borderPaneRegion){
+            case TOP -> borderPane.setTop(loadView(viewList));
+            case LEFT -> borderPane.setLeft(loadView(viewList));
+            case RIGHT -> borderPane.setRight(loadView(viewList));
+            case BOTTOM -> borderPane.setBottom(loadView(viewList));
+            case CENTER -> borderPane.setCenter(loadView(viewList));
+        }
+
     }
 
 
