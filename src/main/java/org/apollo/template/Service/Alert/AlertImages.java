@@ -8,7 +8,6 @@ public enum AlertImages {
 
     private String imagePath;
 
-
     AlertImages(String imagePath) {
         this.imagePath = imagePath;
     }

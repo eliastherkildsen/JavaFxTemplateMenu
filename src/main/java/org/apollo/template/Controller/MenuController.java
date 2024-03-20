@@ -39,7 +39,7 @@ public class MenuController {
 
     @FXML
     protected void message(){
-        Alert a = new Alert(2, AlertImages.ERROR, "Hej der er sku sket en fejl");
+        Alert a = new Alert(2, AlertImages.ERROR, "Error", "Dette er line 1", "dette er linje 2");
         a.start();
     }
 

@@ -1,5 +1,6 @@
 package org.apollo.template.Service.Alert;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -9,24 +10,24 @@ public class Alert {
 
     private int durationInSeconds;
     private AlertImages alertImages;
-    private String alertMessage;
+    private String alertHeader, alertLine1, alertLine2;
     private AlertComp alertComp;
+    private StackPane stackPane = MainController.getInstance().getStackPane();
 
-    public Alert(int durationInSeconds, AlertImages alertImages, String alertMessage) {
+
+    public Alert(int durationInSeconds, AlertImages alertImages, String alertHeader, String alertLine1, String alertLine2) {
         this.durationInSeconds = durationInSeconds;
         this.alertImages = alertImages;
-        this.alertMessage = alertMessage;
+        this.alertHeader = alertHeader;
 
-        alertComp = new AlertComp(new Image(alertImages.getImagePath()), alertMessage);
+        alertComp = new AlertComp(new Image(alertImages.getImagePath()), alertHeader, alertLine1, alertLine2);
 
     }
 
     public void start() {
 
 
-        StackPane stackPane = MainController.getInstance().getStackPane();
         stackPane.getChildren().add(alertComp);
-        stackPane.setAlignment(alertComp, javafx.geometry.Pos.BOTTOM_RIGHT);
 
         Thread timerThread = new Thread(() -> {
             try {
@@ -36,10 +37,16 @@ public class Alert {
                 e.printStackTrace();
             }
 
+            deleteAlertComp();
 
         });
 
         timerThread.start();
+
+    }
+
+    private void deleteAlertComp(){
+        Platform.runLater(() -> stackPane.getChildren().remove(alertComp));
 
     }
 
