@@ -1,7 +1,6 @@
 package org.apollo.template;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.ViewList;
 
@@ -21,6 +20,7 @@ public class ViewLoader {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(fxmlFileName.getController()); // Fetches controller
         loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName())); // Fetches FXML file
+
 
         // Log message.
         DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()

@@ -8,7 +8,11 @@ package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
@@ -18,10 +22,12 @@ import java.util.ResourceBundle;
 import static org.apollo.template.ViewLoader.loadView;
 
 public class MainController implements Initializable {
-    private static MainController INSTANCE = new MainController();
-
+    private static MainController INSTANCE;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private StackPane stackPane;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         changeView(ViewList.HOME, BorderPaneRegion.CENTER);
@@ -60,10 +66,8 @@ public class MainController implements Initializable {
         return INSTANCE;
     }
 
-
-
-
-
-
+    public StackPane getStackPane(){
+        return stackPane;
+    }
 
 }
