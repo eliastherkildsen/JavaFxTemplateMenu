@@ -1,15 +1,12 @@
 package org.apollo.template;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apollo.template.Service.ConfigLoader;
 import org.apollo.template.View.ViewList;
-
-import java.io.IOException;
 
 public class App extends Application {
 
@@ -20,7 +17,7 @@ public class App extends Application {
     public static Stage stageRoot;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
 
         stageRoot = stage; // making stage public, for later use.
 

@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
@@ -27,6 +28,8 @@ public class MainController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private StackPane stackPane;
+    @FXML
+    private VBox VBAlert;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,6 +71,9 @@ public class MainController implements Initializable {
 
     public StackPane getStackPane(){
         return stackPane;
+    }
+    public VBox getvBox(){
+        return this.VBAlert;
     }
 
 }

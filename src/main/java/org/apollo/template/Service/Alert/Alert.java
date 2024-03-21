@@ -3,6 +3,7 @@ package org.apollo.template.Service.Alert;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import org.apollo.template.Controller.MainController;
 
 /**
@@ -13,6 +14,7 @@ public class Alert {
     private int durationInSeconds; // Duration for which the alert will be displayed
     private AlertComp alertComp; // Visual component of the alert
     private StackPane stackPane = MainController.getInstance().getStackPane(); // StackPane to display alerts
+    private VBox vBox = MainController.getInstance().getvBox();
     private static Alert activeAlert; // The currently active alert
 
     /**
@@ -34,13 +36,14 @@ public class Alert {
      * If there's an active alert, it is removed before displaying the new one.
      */
     public void start() {
-        if (activeAlert != null) {
-            activeAlert.deleteAlertComp();
-        }
+       // if (activeAlert != null) {
+        //    activeAlert.deleteAlertComp();
+        //}
 
         activeAlert = this;
+        MainController.getInstance().getvBox().getChildren().add(alertComp);
 
-        stackPane.getChildren().add(alertComp);
+                // add(alertComp);
 
         // Create a thread to delete the alert after the specified duration
         Thread timerThread = new Thread(() -> {
@@ -63,7 +66,7 @@ public class Alert {
      */
     private void deleteAlertComp() {
         Platform.runLater(() -> {
-            stackPane.getChildren().remove(alertComp);
+            vBox.getChildren().remove(alertComp);
         });
     }
 }
