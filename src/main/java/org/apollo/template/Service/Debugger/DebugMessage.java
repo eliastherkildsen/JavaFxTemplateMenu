@@ -12,7 +12,7 @@ import org.apollo.template.Service.ConfigLoader;
 
 public class DebugMessage {
 
-    public static final int SPACING = 30;
+    public static final int SPACING = 40;
 
     /**
      * Shows a formatted Debug message in the cmd.
