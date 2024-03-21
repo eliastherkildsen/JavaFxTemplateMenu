@@ -13,9 +13,7 @@ import org.apollo.template.Controller.MainController;
 public class Alert {
     private int durationInSeconds; // Duration for which the alert will be displayed
     private AlertComp alertComp; // Visual component of the alert
-    private StackPane stackPane = MainController.getInstance().getStackPane(); // StackPane to display alerts
     private VBox vBox = MainController.getInstance().getvBox();
-    private static Alert activeAlert; // The currently active alert
 
     /**
      * Constructs a new Alert object with the provided parameters.
@@ -36,12 +34,8 @@ public class Alert {
      * If there's an active alert, it is removed before displaying the new one.
      */
     public void start() {
-       // if (activeAlert != null) {
-        //    activeAlert.deleteAlertComp();
-        //}
 
-        activeAlert = this;
-        MainController.getInstance().getvBox().getChildren().add(alertComp);
+        vBox.getChildren().add(alertComp);
 
                 // add(alertComp);
 
