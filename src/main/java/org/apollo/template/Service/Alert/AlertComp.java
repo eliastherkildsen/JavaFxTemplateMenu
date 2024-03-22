@@ -15,7 +15,6 @@ public class AlertComp extends TextArea {
         super(message);
 
         int totalNumberOfLines = getLineCount();
-        System.out.println(totalNumberOfLines);
 
         setMouseTransparent(true); // enable ensures that the client can not interact with the alert.
         setWrapText(true); // Enable text wrapping
