@@ -52,29 +52,19 @@ When creating a new alert, you need to provide the following arguments:
 
 - **Duration:** The duration (in seconds) for which the alert will be visible on the screen.
 - **Alert Image:** The image on which the alert text will be displayed. Supported alert images include:
-    - AlertImages.Error
-    - AlertImages.INFO
-    - AlertImages.Success
-- **Title:** The title for the alert popup.
-- **Line 1 Text:** The text for the first line of the alert.
-- **Line 2 Text:** The text for the second line of the alert.
-
+    - AlertType.Error
+    - AlertType.INFO
+    - AlertType.Success
+- **message:** the message as a String, with /n as new line. if newLine char is not used, this will end up with the scaling being wrong. 
 
 ```JAVA
 // remember to import the class. 
 // ex. 
 
 import org.apollo.template.Service.Alert.Alert;
-import org.apollo.template.Service.Alert.AlertImages;
 
-public void onBtnError(){
-    new Alert(3, AlertImages.ERROR, "This is a test of Error", "The test is to show of this Alert component", "Alert component").start();
-}
-public void onBtnInfo(){
-    new Alert(3, AlertImages.INFO, "This is a test", "The test is to show of this", "Alert component").start();
-}
-public void onBtnSuccess(){
-    new Alert(3, AlertImages.SUCCESS, "This is a test", "The test is to show of this", "Alert component").start();
+public void onBtnError() {
+  new Alert(3, AlertType.ERROR, "This is a test of Error \n The test is to show of this Alert component \n Alert component").start();
 }
 
 ``` 

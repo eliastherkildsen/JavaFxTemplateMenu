@@ -3,7 +3,6 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Service.Alert.Alert;
-import org.apollo.template.Service.Alert.AlertImages;
 import org.apollo.template.Service.Alert.AlertType;
 import org.apollo.template.Service.Debugger.DebugMessage;
 
@@ -36,7 +35,7 @@ public class HomeController {
         new Alert(3, AlertType.INFO, "This is a test The test is to show of this \n asdasdkasdj akjs kdjas \n alksdlksadl ka lkasdl kalsk dl\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component").start();
     }
     public void onBtnSuccess(){
-        new Alert(3, AlertType.SUCCESS, "This is a test The test is to show of this Alert component").start();
+        new Alert(3, AlertType.SUCCESS, "This is a test The test is to show of this \n asdasdkasdj akjs kdjas \n alksdlksadl ka lkasdl kalsk dl\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component\nAlert component").start();
     }
 
 

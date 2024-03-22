@@ -1,65 +1,67 @@
 package org.apollo.template.Service.Alert;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+import javafx.scene.control.TextArea;
 
-/**
- * Custom component for displaying alerts with an image, header, and two lines of text.
- */
-public class AlertComp extends StackPane {
+public class AlertComp extends TextArea {
 
-    private ImageView imageView;
-    private Label headerLabel, line1Label, line2Label;
-    private final int TEXT_PADDING_RIGHT = 40; // Padding from the right edge
-    private final int TEXT_PADDING_BOTTOM = 65; // Padding from the bottom edge
+    private final int MIN_HEIGHT = 100;
+    private final int MIN_WIDTH = 300;
+    private final int MAX_WIDTH = 300;
+    private final int LINE_SIZE_IN_PX = 21; // the amount the text area grows with for each "\n" in the message.
+
+    public AlertComp(AlertType alertType, String message) {
+
+        // setting text of the Text area.
+        super(message);
+
+        int totalNumberOfLines = getLineCount();
+        System.out.println(totalNumberOfLines);
+
+        setMouseTransparent(true); // enable ensures that the client can not interact with the alert.
+        setWrapText(true); // Enable text wrapping
+        applyStyle(alertType); // setting css props.
+
+        // setting max width to keep the alert component stay consistent on its width property.
+        setMaxWidth(MAX_WIDTH);
+        setMinWidth(MIN_WIDTH);
+
+
+        // setting height constraints.
+        setMaxHeight(LINE_SIZE_IN_PX * totalNumberOfLines); // Allow the TextArea to shrink if needed
+        setMinHeight(MIN_HEIGHT);
+
+    }
 
     /**
-     * Constructs an AlertComp with the specified image, header, and lines of text.
-     *
-     * @param image   The image to display in the alert.
-     * @param header  The header text for the alert.
-     * @param line1   The first line of text for the alert.
-     * @param line2   The second line of text for the alert.
+     * Get the number of lines in the TextArea.
+     * @return The number of lines.
      */
-    public AlertComp(Image image, String header, String line1, String line2) {
+    public int getLineCount() {
+        String text = getText();
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        return text.split("\n", -1).length;
+    }
 
-        // initializing components.
-        imageView = new ImageView(image);
-        headerLabel = new Label(header);
-        line1Label = new Label(line1);
-        line2Label = new Label(line2);
+    /**
+     * Method for loading the right style on the AlertComponent.
+     * @param alertType associated value for determining the style to be used.
+     */
+    private void applyStyle(AlertType alertType) {
+        switch (alertType) {
+            case ERROR:
+                getStyleClass().add("alertError");
+                break;
+            case SUCCESS:
+                getStyleClass().add("alertSuccess");
+                break;
+            case INFO:
+                getStyleClass().add("alertInfo");
+                break;
+        }
 
-        // setting up the imageView attributes.
-        imageView.setFitWidth(300);
-        imageView.maxWidth(300);
-        imageView.setPreserveRatio(true);
-        imageView.setFitHeight(300);
-        imageView.maxHeight(180);
-
-
-        // lining up the components
-        // TODO: MAKE MORE DYNAMIC!
-
-        // lining up the header
-        StackPane.setAlignment(headerLabel, Pos.BOTTOM_RIGHT);
-        headerLabel.setPadding(new Insets(0, TEXT_PADDING_RIGHT, TEXT_PADDING_BOTTOM, 0));
-        headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-
-        // lining up the label
-        line1Label.setPadding(new Insets(0, TEXT_PADDING_RIGHT, TEXT_PADDING_BOTTOM - 20, 0));
-        line2Label.setPadding(new Insets(0, TEXT_PADDING_RIGHT, TEXT_PADDING_BOTTOM - 40, 0));
-
-        // This is done so  that the user can click on stuff behind the imageview.
-        this.setMouseTransparent(true);
-        this.setAlignment(Pos.BOTTOM_RIGHT);
-
-        // adding all the components to the stack pane.
-        this.getChildren().addAll(imageView, headerLabel, line1Label, line2Label);
+        // Load the custom style sheet for the alertComponent.
+        getStylesheets().add(getClass().getResource("/org/apollo/template/css/alertStyles.css").toExternalForm());
     }
 }

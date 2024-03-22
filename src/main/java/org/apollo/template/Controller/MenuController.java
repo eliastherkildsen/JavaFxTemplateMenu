@@ -3,7 +3,6 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Service.Alert.Alert;
-import org.apollo.template.Service.Alert.AlertImages;
 import org.apollo.template.Service.Alert.AlertType;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;

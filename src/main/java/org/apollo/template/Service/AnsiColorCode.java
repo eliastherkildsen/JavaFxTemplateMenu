@@ -2,7 +2,7 @@ package org.apollo.template.Service;
 
 /**
  * @author w3schools
- * @website https://www.w3schools.blog/ansi-colors-java
+ * @website <a href="https://www.w3schools.blog/ansi-colors-java">...</a>
  */
 
 public class AnsiColorCode {
