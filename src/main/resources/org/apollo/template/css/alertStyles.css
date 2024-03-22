@@ -1,29 +1,33 @@
 .alertError {
-    -fx-background-color: red;
+    -fx-background-color: #ff073a;
     -fx-background-radius: 40;
     -fx-border-radius: 40;
-    -fx-border-color: red;
+    -fx-border-color: #ff073a;
     -fx-padding: 10px; /* Add padding to the text */
 
 }
 
 .alertSuccess {
-    -fx-background-color: green;
+    -fx-background-color: #02e302;
     -fx-background-radius: 40;
     -fx-border-radius: 40;
-    -fx-border-color: green;
+    -fx-border-color: #02e302;
     -fx-padding: 10px; /* Add padding to the text */
 
 }
 
 .alertInfo {
-    -fx-background-color: yellow;
+    -fx-background-color: #FFFF00;
     -fx-background-radius: 40;
     -fx-border-radius: 40;
-    -fx-border-color: yellow;
+    -fx-border-color: #FFFF00;
     -fx-padding: 10px; /* Add padding to the text */
-
 }
+
+.text-area {
+    -fx-text-fill: black;
+}
+
 
 .text-area .scroll-pane {
     -fx-background-color: transparent;
