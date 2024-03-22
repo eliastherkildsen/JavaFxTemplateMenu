@@ -8,9 +8,6 @@ package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -26,8 +23,6 @@ public class MainController implements Initializable {
     private static MainController INSTANCE;
     @FXML
     private BorderPane borderPane;
-    @FXML
-    private StackPane stackPane;
     @FXML
     private VBox VBAlert;
 
@@ -69,9 +64,6 @@ public class MainController implements Initializable {
         return INSTANCE;
     }
 
-    public StackPane getStackPane(){
-        return stackPane;
-    }
     public VBox getvBox(){
         return this.VBAlert;
     }

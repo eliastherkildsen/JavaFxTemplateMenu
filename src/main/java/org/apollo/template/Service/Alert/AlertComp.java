@@ -42,6 +42,7 @@ public class AlertComp extends StackPane {
         imageView.setFitHeight(300);
         imageView.maxHeight(180);
 
+
         // lining up the components
         // TODO: MAKE MORE DYNAMIC!
 

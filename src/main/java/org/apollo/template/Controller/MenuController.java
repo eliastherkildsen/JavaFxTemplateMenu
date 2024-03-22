@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Service.Alert.Alert;
 import org.apollo.template.Service.Alert.AlertImages;
+import org.apollo.template.Service.Alert.AlertType;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
@@ -39,7 +40,7 @@ public class MenuController {
 
     @FXML
     protected void message(){
-        Alert a = new Alert(2, AlertImages.ERROR, "Error", "Dette er line 1", "dette er linje 2");
+        Alert a = new Alert(2, AlertType.ERROR, "Error Dette er line 1");
         a.start();
     }
 

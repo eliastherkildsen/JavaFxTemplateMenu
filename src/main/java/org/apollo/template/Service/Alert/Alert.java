@@ -2,7 +2,7 @@ package org.apollo.template.Service.Alert;
 
 import javafx.application.Platform;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.apollo.template.Controller.MainController;
 
@@ -12,21 +12,18 @@ import org.apollo.template.Controller.MainController;
  */
 public class Alert {
     private int durationInSeconds; // Duration for which the alert will be displayed
-    private AlertComp alertComp; // Visual component of the alert
+    private AlertCompV2 alertComp; // Visual component of the alert
     private VBox vBox = MainController.getInstance().getvBox();
 
     /**
      * Constructs a new Alert object with the provided parameters.
      *
      * @param durationInSeconds Duration for which the alert will be displayed
-     * @param alertImages      Images associated with the alert
-     * @param alertHeader      Header text of the alert
-     * @param alertLine1       First line of text of the alert
-     * @param alertLine2       Second line of text of the alert
+
      */
-    public Alert(int durationInSeconds, AlertImages alertImages, String alertHeader, String alertLine1, String alertLine2) {
+    public Alert(int durationInSeconds, AlertType alertType, String message) {
         this.durationInSeconds = durationInSeconds;
-        alertComp = new AlertComp(new Image(alertImages.getImagePath()), alertHeader, alertLine1, alertLine2);
+        this.alertComp = new AlertCompV2(alertType, message);
     }
 
     /**
@@ -36,8 +33,7 @@ public class Alert {
     public void start() {
 
         vBox.getChildren().add(alertComp);
-
-                // add(alertComp);
+        vBox.setVgrow(alertComp, Priority.ALWAYS);
 
         // Create a thread to delete the alert after the specified duration
         Thread timerThread = new Thread(() -> {

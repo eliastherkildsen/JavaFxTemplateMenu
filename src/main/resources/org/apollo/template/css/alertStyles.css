@@ -1,0 +1,39 @@
+.alertError {
+    -fx-background-color: red;
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: red;
+    -fx-padding: 10px; /* Add padding to the text */
+
+}
+
+.alertSuccess {
+    -fx-background-color: green;
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: green;
+    -fx-padding: 10px; /* Add padding to the text */
+
+}
+
+.alertInfo {
+    -fx-background-color: yellow;
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: yellow;
+    -fx-padding: 10px; /* Add padding to the text */
+
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
