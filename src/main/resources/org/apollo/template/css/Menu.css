@@ -1,5 +1,14 @@
+/*
+--text: #f9fbf9;
+--background: #050a07;
+--primary: #589d6c;
+--secondary: #2d3a52;
+--accent: #49487f;
+*/
+
+
 .button {
-    -fx-background-color: transparent;
+    -fx-background-color: #589d6c;
     -fx-background-radius: 0;
 
     -fx-font-size: 20px;
@@ -27,7 +36,7 @@
     -fx-border-color: rgba(73, 67, 67, 0.91);
     -fx-border-width: 0px 1px 0px 0px;
 
-    -fx-background-color: rgb(161, 161, 161);
+    -fx-background-color: #050a07;
 }
 
 

@@ -21,8 +21,8 @@ public class Alert {
      * @param durationInSeconds Duration for which the alert will be displayed
 
      */
-    public Alert(Alertable alertableArea, int durationInSeconds, AlertType alertType, String message) {
-        this.ALERT_AREA = alertableArea;
+    public Alert(Alertable alterableArea, int durationInSeconds, AlertType alertType, String message) {
+        this.ALERT_AREA = alterableArea;
         this.DURATION_IN_SECONDS = durationInSeconds;
         this.ALERT_COMPONENT = new AlertComp(alertType, message);
     }
