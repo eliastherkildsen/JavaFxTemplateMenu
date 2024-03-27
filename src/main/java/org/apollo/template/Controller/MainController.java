@@ -9,8 +9,9 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import org.apollo.template.Service.Alert.AlertComp;
+import org.apollo.template.Service.Alert.Alertable;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
@@ -19,7 +20,7 @@ import java.util.ResourceBundle;
 
 import static org.apollo.template.ViewLoader.loadView;
 
-public class MainController implements Initializable {
+public class MainController implements Initializable, Alertable<VBox> {
     private static MainController INSTANCE;
     @FXML
     private BorderPane borderPane;
@@ -63,9 +64,19 @@ public class MainController implements Initializable {
         }
         return INSTANCE;
     }
-
-    public VBox getvBox(){
-        return this.VBAlert;
+    @Override
+    public void getAlertArea(){
     }
-
+    @Override
+    public void clearAlertArea() {
+        VBAlert.getChildren().clear();
+    }
+    @Override
+    public void addAlert(AlertComp alertComp) {
+        VBAlert.getChildren().add(alertComp);
+    }
+    @Override
+    public void removeAlert(AlertComp alertComp) {
+        VBAlert.getChildren().remove(alertComp);
+    }
 }

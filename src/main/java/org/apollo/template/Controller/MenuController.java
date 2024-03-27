@@ -39,7 +39,7 @@ public class MenuController {
 
     @FXML
     protected void message(){
-        Alert a = new Alert(2, AlertType.ERROR, "Error Dette er line 1");
+        Alert a = new Alert(MainController.getInstance(), 2, AlertType.ERROR, "Error Dette er line 1");
         a.start();
     }
 

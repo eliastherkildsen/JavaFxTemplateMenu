@@ -1,6 +1,7 @@
 package org.apollo.template.Service.Alert;
 
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.apollo.template.Controller.MainController;
@@ -12,7 +13,7 @@ import org.apollo.template.Controller.MainController;
 public class Alert {
     private final int DURATION_IN_SECONDS; // Duration for which the alert will be displayed
     private final AlertComp ALERT_COMPONENT; // Visual component of the alert
-    private final VBox V_BOX;
+    private final Alertable ALERT_AREA;
 
     /**
      * Constructs a new Alert object with the provided parameters.
@@ -20,8 +21,8 @@ public class Alert {
      * @param durationInSeconds Duration for which the alert will be displayed
 
      */
-    public Alert(int durationInSeconds, AlertType alertType, String message) {
-        this.V_BOX = MainController.getInstance().getvBox();
+    public Alert(Alertable alertableArea, int durationInSeconds, AlertType alertType, String message) {
+        this.ALERT_AREA = alertableArea;
         this.DURATION_IN_SECONDS = durationInSeconds;
         this.ALERT_COMPONENT = new AlertComp(alertType, message);
     }
@@ -32,13 +33,14 @@ public class Alert {
      */
     public void start() {
 
-        V_BOX.getChildren().add(ALERT_COMPONENT); // adding the alertComponent to the Vbox.
-        V_BOX.setVgrow(ALERT_COMPONENT, Priority.ALWAYS); // This is done to make the alertComponent able take up as much space as needed.
+        ALERT_AREA.addAlert(ALERT_COMPONENT); // adding the alertComponent to the Vbox.
+        ALERT_AREA.getAlertArea();
+        VBox.setVgrow(ALERT_COMPONENT, Priority.ALWAYS); // This is done to make the alertComponent able take up as much space as needed.
 
         // Create a thread to delete the alert after the specified duration
         Thread timerThread = new Thread(() -> {
             try {
-                Thread.sleep(DURATION_IN_SECONDS * 1000);
+                Thread.sleep(DURATION_IN_SECONDS * 1000L);
             } catch (InterruptedException e) {
                 // Handle interruption if necessary
                 e.printStackTrace();
@@ -56,7 +58,7 @@ public class Alert {
      */
     private void deleteAlertComp() {
         Platform.runLater(() -> {
-            V_BOX.getChildren().remove(ALERT_COMPONENT);
+            ALERT_AREA.removeAlert(ALERT_COMPONENT);
         });
     }
 }
