@@ -1,6 +1,7 @@
-package org.apollo.template.Service.Alert;
+package org.apollo.template.View.UI;
 
 import javafx.scene.control.TextArea;
+import org.apollo.template.Service.Alert.AlertType;
 
 public class AlertComp extends TextArea {
 
@@ -16,9 +17,9 @@ public class AlertComp extends TextArea {
 
         int totalNumberOfLines = getLineCount();
 
-        setMouseTransparent(true); // enable ensures that the client can not interact with the alert.
-        setWrapText(true); // Enable text wrapping
-        applyStyle(alertType); // setting css props.
+        setMouseTransparent(true); // Enable ensures that the client can not interact with the alert.
+        setWrapText(true);         // Enable text wrapping
+        applyStyle(alertType);     // setting css props.
 
         // setting max width to keep the alert component stay consistent on its width property.
         setMaxWidth(MAX_WIDTH);

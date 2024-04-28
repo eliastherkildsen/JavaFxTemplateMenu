@@ -1,10 +1,9 @@
 package org.apollo.template.Service.Alert;
 
 import javafx.application.Platform;
-import javafx.scene.Node;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import org.apollo.template.Controller.MainController;
+import org.apollo.template.View.UI.AlertComp;
 
 /**
  * The Alert class provides functionality to display alerts on a JavaFX StackPane.

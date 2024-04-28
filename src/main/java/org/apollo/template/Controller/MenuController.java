@@ -2,8 +2,6 @@ package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import org.apollo.template.Service.Alert.Alert;
-import org.apollo.template.Service.Alert.AlertType;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
@@ -24,23 +22,7 @@ public class MenuController {
 
     @FXML
     protected void onBtnHome() {
-        MainController.getInstance().changeView(ViewList.HOME, BorderPaneRegion.CENTER);
-    }
-
-    @FXML
-    protected void onBtnSettings( ) {
-        MainController.getInstance().changeView(ViewList.SETTINGS, BorderPaneRegion.CENTER);
-    }
-
-    @FXML
-    protected void onBtnGame( ) {
-        MainController.getInstance().changeView(ViewList.GAME, BorderPaneRegion.CENTER);
-    }
-
-    @FXML
-    protected void message(){
-        Alert a = new Alert(MainController.getInstance(), 2, AlertType.ERROR, "Error Dette er line 1");
-        a.start();
+        MainController.getInstance().setView(ViewList.HOME, BorderPaneRegion.CENTER);
     }
 
     public static MenuController getInstance() {

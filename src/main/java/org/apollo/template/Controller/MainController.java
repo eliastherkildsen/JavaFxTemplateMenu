@@ -10,15 +10,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import org.apollo.template.Service.Alert.AlertComp;
+import org.apollo.template.View.UI.AlertComp;
 import org.apollo.template.Service.Alert.Alertable;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.BorderPaneRegion;
 import org.apollo.template.View.ViewList;
+import org.apollo.template.ViewLoader;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static org.apollo.template.ViewLoader.loadView;
 
 public class MainController implements Initializable, Alertable<VBox> {
     private static MainController INSTANCE;
@@ -29,8 +29,8 @@ public class MainController implements Initializable, Alertable<VBox> {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        changeView(ViewList.HOME, BorderPaneRegion.CENTER);
-        changeView(ViewList.MENU, BorderPaneRegion.LEFT);
+        setView(ViewList.HOME, BorderPaneRegion.CENTER);
+        setView(ViewList.MENU, BorderPaneRegion.LEFT);
     }
 
     /**
@@ -38,17 +38,37 @@ public class MainController implements Initializable, Alertable<VBox> {
      * @param viewList FXMLView
      * @param borderPaneRegion Region to load the fxml view into.
      */
-    public void changeView(ViewList viewList, BorderPaneRegion borderPaneRegion) {
+    public void setView(ViewList viewList, BorderPaneRegion borderPaneRegion) {
 
         switch (borderPaneRegion){
-            case TOP -> borderPane.setTop(loadView(viewList));
-            case LEFT -> borderPane.setLeft(loadView(viewList));
-            case RIGHT -> borderPane.setRight(loadView(viewList));
-            case BOTTOM -> borderPane.setBottom(loadView(viewList));
-            case CENTER -> borderPane.setCenter(loadView(viewList));
+            case TOP    -> borderPane.setTop(ViewLoader.loadView(viewList));
+            case LEFT   -> borderPane.setLeft(ViewLoader.loadView(viewList));
+            case RIGHT  -> borderPane.setRight(ViewLoader.loadView(viewList));
+            case BOTTOM -> borderPane.setBottom(ViewLoader.loadView(viewList));
+            case CENTER -> borderPane.setCenter(ViewLoader.loadView(viewList));
         }
 
     }
+
+    /**
+     * Method for clearing an area of a borderpane.
+     * @param borderPaneRegion Region to set contents to null.
+     */
+    public void removeView(BorderPaneRegion borderPaneRegion) {
+
+        switch (borderPaneRegion){
+            case TOP    -> borderPane.setTop(null);
+            case LEFT   -> borderPane.setLeft(null);
+            case RIGHT  -> borderPane.setRight(null);
+            case BOTTOM -> borderPane.setBottom(null);
+            case CENTER -> borderPane.setCenter(null);
+        }
+
+    }
+
+
+
+
 
 
 
