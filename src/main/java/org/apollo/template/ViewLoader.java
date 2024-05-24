@@ -18,13 +18,10 @@ public class ViewLoader {
     public static javafx.scene.Node loadView(ViewList fxmlFileName) {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setController(fxmlFileName.getController()); // Fetches controller
         loader.setLocation(ViewLoader.class.getResource(fxmlFileName.getFxmlFileName())); // Fetches FXML file
 
-
         // Log message.
-        DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
-                + " With Controller: " + fxmlFileName.getController());
+        DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName());
 
         try {
             return loader.load(); // Returns anchor pane.

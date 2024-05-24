@@ -1,12 +1,15 @@
 package org.apollo.template;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.apollo.template.Controller.MainController;
 import org.apollo.template.Service.ConfigLoader;
-import org.apollo.template.View.ViewList;
+
+
+import java.io.IOException;
 
 public class App extends Application {
 
@@ -14,19 +17,19 @@ public class App extends Application {
     public static int screenHeight = 800;
     private String screenTitle = "Apollo - JavaFx Template";
     private Image icon = new Image("file:src/main/resources/org/apollo/template/images/TempLogoBG_shadow.png");
-    public static Stage stageRoot;
 
     @Override
-    public void start(Stage stage) {
-
-        stageRoot = stage; // making stage public, for later use.
+    public void start(Stage stage) throws IOException {
 
         ConfigLoader.get(); // initializing configLoader.
-        Scene root = new Scene((Parent) ViewLoader.loadView(ViewList.MAIN), screenWidth, screenHeight); // loading main view.
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainView.fxml"));
+        fxmlLoader.setController(MainController.getInstance());
+        Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
 
         // setting stage props.
         stage.setTitle(screenTitle);
-        stage.setScene(root);
+        stage.setScene(scene);
         stage.getIcons().add(icon);
         stage.show();
 

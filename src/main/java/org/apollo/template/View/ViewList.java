@@ -9,22 +9,16 @@ import org.apollo.template.Controller.*;
 public enum ViewList {
 
     /**
-     * Main view.
-     */
-    MAIN("MainView.fxml", MainController.getInstance()),
-
-    /**
      * Home view.
      */
-    HOME("HomeView.fxml", HomeController.getInstance()),
+    HOME("HomeView.fxml"),
 
     /**
      * Menu view.
      */
-    MENU("MenuView.fxml", MenuController.getInstance());
+    MENU("MenuView.fxml");
 
     private final String FXML_FILE_NAME; // FXML file name of the view
-    private final Object CONTROLLER; // Controller associated with the view
 
     /**
      * Constructs a ViewList enum value with the specified FXML file name and controller.
@@ -32,9 +26,9 @@ public enum ViewList {
      * @param fxmlFileName The name of the FXML file representing the view
      * @param controller   The controller associated with the view
      */
-    ViewList(String fxmlFileName, Object controller) {
+    ViewList(String fxmlFileName) {
         this.FXML_FILE_NAME = fxmlFileName;
-        this.CONTROLLER = controller;
+
     }
 
     /**
@@ -44,15 +38,6 @@ public enum ViewList {
      */
     public String getFxmlFileName() {
         return this.FXML_FILE_NAME;
-    }
-
-    /**
-     * Returns the controller associated with the view.
-     *
-     * @return The controller instance
-     */
-    public Object getController() {
-        return this.CONTROLLER;
     }
 
     /**

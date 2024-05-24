@@ -8,28 +8,14 @@ import org.apollo.template.View.ViewList;
 
 public class MenuController {
 
-    private static MenuController INSTANCE;
+
     @FXML
     private AnchorPane root;
-
-
-    private MenuController() {
-        if (INSTANCE == null) {
-            DebugMessage.info(this, "Creating an instance of " + this);
-        }
-    }
-
 
     @FXML
     protected void onBtnHome() {
         MainController.getInstance().setView(ViewList.HOME, BorderPaneRegion.CENTER);
     }
 
-    public static MenuController getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new MenuController();
-        }
-        return INSTANCE;
-    }
 
 }
